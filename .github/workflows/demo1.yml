@@ -15,7 +15,6 @@ on:
       - 'feat/**' # feat/new feat/new/button -> slash erlaubt
     paths-ignore:
       - '.github/workflows/*' # workflow is not triggered if a file is changed in the workflows folder
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
