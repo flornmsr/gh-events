@@ -3,7 +3,19 @@ on:
   pull_request:
     types:
         - opened
-  workflow_dispatched:
+    branches:
+      - main
+      - 'dev-*' # dev-new dev-this-is-new -> kein slash erlaubt
+      - 'feat/**' # feat/new feat/new/button -> slash erlaubt
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - 'dev-*' # dev-new dev-this-is-new -> kein slash erlaubt
+      - 'feat/**' # feat/new feat/new/button -> slash erlaubt
+    paths-ignore:
+      - '.github/workflows/*' # workflow is not triggered if a file is changed in the workflows folder
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
